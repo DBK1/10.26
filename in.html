@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+</head>
+<body>
+</body>
+<script>
+    $(function () {
+            $.ajax({
+                url:"http://localhost:3000/in",
+                type:"GET",
+                success:function (e) {
+                    console.log(e);
+                    var arr = "";
+                    for ( var i in e){
+                        arr = e[i].id+"，姓名："+e[i].name+"，分数："+e[i].score
+                        $("body").append("<p>"+arr+"</p>")
+//                        for(var i in arr){
+//                            $("body").append("<p>"+arr[i]+"</p>")
+//                        }
+                    }
+                    console.log(arr)
+
+                }
+            })
+    })
+</script>
+</html>
